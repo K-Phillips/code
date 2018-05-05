@@ -19,13 +19,5 @@ def parseXML(filename):
             item = ''.join([g for g in item if g not in string.punctuation])
             if item != '':
                 xml_dict[tag].append(item.lower())
-    # junk for topic modeling
-    word_list = []
-    for key,value in xml_dict.items():
-        if value != ['none'] and key != 'Do_id':
-            for word in value:
-                word_list.append(word)
-    with open('words.txt', 'a') as output:
-        output.write(filename + ': ' + ' '.join(word_list) + '\n')
-    # end junk for topic modeling
+
     return xml_dict
